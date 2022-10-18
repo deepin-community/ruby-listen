@@ -1,0 +1,7 @@
+ * rb-kqueue is not packaged for Debian yet, but a Depends for *BSD,
+   entry should be like:
+   ruby-kqueue [bsd-any] (>= <version>)
+   in Recommends: 
+ * For *BSD the patch circumvent-dependency-manager must be adapted for
+   spec/listen/adapters/bsd_spec.rb
+

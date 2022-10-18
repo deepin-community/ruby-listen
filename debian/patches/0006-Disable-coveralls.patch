@@ -1,0 +1,25 @@
+From: Daniel Leidert <daniel.leidert@wgdd.de>
+Date: Sat, 29 Feb 2020 14:17:51 +0100
+Subject: Disable coveralls
+
+Disable coveralls. Otherwise we have another failure thrown by coveralls.
+---
+ spec/spec_helper.rb | 5 -----
+ 1 file changed, 5 deletions(-)
+
+diff --git a/spec/spec_helper.rb b/spec/spec_helper.rb
+index 676f51f..4650d09 100644
+--- a/spec/spec_helper.rb
++++ b/spec/spec_helper.rb
+@@ -9,11 +9,6 @@ def ci?
+   ENV['CI']
+ end
+ 
+-if ci?
+-  require 'coveralls'
+-  Coveralls.wear!
+-end
+-
+ Dir["#{__dir__}/support/**/*.rb"].sort.each { |f| require f }
+ 
+ # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration

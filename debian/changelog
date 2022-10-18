@@ -1,0 +1,146 @@
+ruby-listen (3.7.0-1) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Daniel Leidert ]
+  * d/watch: Improve pattern to match pre-releases.
+
+  [ Debian Janitor ]
+  * Remove constraints unnecessary since buster:
+    + Build-Depends: Drop versioned constraint on ruby-rb-inotify.
+  * Bump debhelper from old 12 to 13.
+  * Update standards version to 4.5.1, no changes needed.
+
+  [ Antonio Terceiro ]
+  * New upstream version 3.7.0
+  * debian/rules: install using rubygems layout
+  * debian/control: refresh with dh-make-ruby
+  * Refresh patches
+  * debian/ruby-tests.rake: exclude ./spec/acceptance/listen_spec.rb
+  * debian/ruby-tests.rake: exclude ./spec/lib/listen/monotonic_time_spec.rb
+
+ -- Antonio Terceiro <terceiro@debian.org>  Sat, 13 Nov 2021 10:42:02 -0300
+
+ruby-listen (3.2.1-1) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Debian Janitor ]
+  * Set field Upstream-Contact in debian/copyright.
+  * Remove obsolete fields Contact, Name from debian/upstream/metadata
+    (already present in machine-readable debian/copyright).
+
+  [ Pirate Praveen ]
+  * New upstream version 3.2.1
+  * Refresh patches (remove patches no longer required)
+
+ -- Pirate Praveen <praveen@debian.org>  Mon, 03 Aug 2020 17:37:35 +0530
+
+ruby-listen (3.1.5-2) unstable; urgency=medium
+
+  * Team upload.
+  * d/compat: Remove obsolete file.
+  * d/control: Add Rules-Requires-Root and Testsuite fields.
+    (Build-Depends): Use debhelper-compat version 12 and raise version of
+    ruby-rb-inotify to 0.9.7 according to gemspec.
+    (Standards-Version): Bump to 4.5.0.
+    (Vcs-Browser, Vcs-Git): Fix URLs.
+    (Depends): Remove interpreter.
+  * d/copyright (Format): Fix insecure-copyright-format-uri.
+  * d/rules: Add override to install upstream CHANGELOG.md.
+  * d/upstream/metadata: Add metadata.
+  * d/patches/0005-Fix-linux-specs.patch: Add patch.
+    - Use raw Pathname to fix Linux specs (closes: #952030).
+  * d/patches/0006-Disable-coveralls.patch: Add patch.
+    - Don't use coveralls at all.
+  * d/patches/series: Add new patch.
+  * d/tests/: Remove old tests now triggered by Testsuite.
+
+ -- Daniel Leidert <dleidert@debian.org>  Sat, 29 Feb 2020 14:38:33 +0100
+
+ruby-listen (3.1.5-1) unstable; urgency=medium
+
+  * Team upload.
+
+  [ HIGUCHI Daisuke (VDR dai) ]
+  * New upstream release.
+  * Refresh patches.
+  - d/p/0003-fix-listener-test-in-ruby2_3.patch: applied upstream.
+  * d/p/0001-Remove-OSX-specific-dependency.patch: more remove OSX deps.
+  * d/p/0004-disable-ruby_dep.patch: new patch.
+  * d/rules: remove test fixtures.
+  * Support autopkgtest-pkg-ruby.
+  * Bump Standards-Versio to 4.1.1 (no changes needed)
+  * Bump debhelper compatibility level to 10
+
+  [ Cédric Boutillier ]
+  * Use https:// in Vcs-* fields
+  * Run wrap-and-sort on packaging files
+
+ -- HIGUCHI Daisuke (VDR dai) <dai@debian.org>  Tue, 05 Dec 2017 16:21:17 +0900
+
+ruby-listen (3.0.3-3) unstable; urgency=medium
+
+  * Team Upload.
+  * Added patch 0003-fix-listener-test-in-ruby2_3.patch
+  * Update packaging using dh-make-ruby -w
+    - Bump Standards-Versio to 3.9.7 (no changes needed)
+    - Set debhelper compatibility level to 9
+    - use https:// in Vcs-* fields
+
+ -- Thiago Ribeiro <thiago@pencillabs.com>  Wed, 02 Mar 2016 14:01:27 -0300
+
+ruby-listen (3.0.3-2) unstable; urgency=medium
+
+  * drop `Recommends: ruby-rb-inotify` since it became a proper dependency.
+  * Added patch 0002-gemspec-skip-git-usage.patch
+
+ -- Antonio Terceiro <terceiro@debian.org>  Sat, 08 Aug 2015 12:52:38 -0300
+
+ruby-listen (3.0.3-1) unstable; urgency=medium
+
+  * Team upload
+  * New upstream release
+    - ported to rspec3 (Closes: #794136)
+  * debian/watch: point at github since upstream stopped shipping the tests on
+    rubygems
+  * debian/patches: remove all tests, none of them applies anymore
+  * Add debian/patches/0001-Remove-OSX-specific-dependency.patch
+  * Update packaging with a new dh-make-ruby run
+
+ -- Antonio Terceiro <terceiro@debian.org>  Sat, 08 Aug 2015 09:42:36 -0300
+
+ruby-listen (2.4.0-4) unstable; urgency=medium
+
+  * Team upload.
+  * debian/patches/remove-mcosx-specific-dependency.patch: remove
+    MacOSX-specific dependency from gemspec
+
+ -- Antonio Terceiro <terceiro@debian.org>  Fri, 18 Apr 2014 22:08:09 -0300
+
+ruby-listen (2.4.0-3) unstable; urgency=medium
+
+  * Add missing dependency on ruby-celluloid (Closes: #737466)
+
+ -- Cédric Boutillier <boutil@debian.org>  Mon, 03 Feb 2014 16:44:09 +0100
+
+ruby-listen (2.4.0-2) unstable; urgency=medium
+
+  * Make the package arch: all
+  * Add the following patches:
+    + deactivate_arch_specific_tests.patch: do not run arch-specific tests on
+      non Linux architectures
+    + do_not_fail_fast.patch: run the test suite until the end even if some
+      tests fail
+
+ -- Cédric Boutillier <boutil@debian.org>  Sun, 26 Jan 2014 18:29:27 +0100
+
+ruby-listen (2.4.0-1) unstable; urgency=medium
+
+  [ Markus Tornow ]
+  * Initial release (Closes: #693347)
+
+  [ Cédric Boutillier ]
+  * help with packaging effort
+
+ -- Cédric Boutillier <boutil@debian.org>  Fri, 24 Jan 2014 01:39:00 +0100

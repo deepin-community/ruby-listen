@@ -1,0 +1,19 @@
+From: Antonio Terceiro <terceiro@debian.org>
+Date: Fri, 7 Aug 2015 18:14:14 -0300
+Subject: Remove OSX-specific dependency
+
+---
+ listen.gemspec | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/listen.gemspec b/listen.gemspec
+index ba62b76..ce06eb5 100644
+--- a/listen.gemspec
++++ b/listen.gemspec
+@@ -34,6 +34,5 @@ Gem::Specification.new do |gem| # rubocop:disable Metrics/BlockLength
+ 
+   gem.required_ruby_version = '>= 2.4.0' # rubocop:disable Gemspec/RequiredRubyVersion
+ 
+-  gem.add_dependency 'rb-fsevent', '~> 0.10', '>= 0.10.3'
+   gem.add_dependency 'rb-inotify', '~> 0.9', '>= 0.9.10'
+ end

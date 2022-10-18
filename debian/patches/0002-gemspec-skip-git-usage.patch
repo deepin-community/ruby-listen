@@ -1,0 +1,23 @@
+From: Antonio Terceiro <terceiro@debian.org>
+Date: Sat, 8 Aug 2015 12:45:22 -0300
+Subject: gemspec: skip git usage
+
+---
+ listen.gemspec | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+diff --git a/listen.gemspec b/listen.gemspec
+index ce06eb5..edf2dc9 100644
+--- a/listen.gemspec
++++ b/listen.gemspec
+@@ -24,9 +24,7 @@ Gem::Specification.new do |gem| # rubocop:disable Metrics/BlockLength
+     'source_code_uri' => "#{gem.homepage}/tree/v#{gem.version}"
+   }
+ 
+-  gem.files = `git ls-files -z`.split("\x0").select do |f|
+-    %r{^(?:bin|lib)/} =~ f
+-  end + %w[CHANGELOG.md CONTRIBUTING.md LICENSE.txt README.md]
++  gem.files        = Dir.glob('{bin,lib}/**/*') + %w(CHANGELOG.md CONTRIBUTING.md LICENSE.txt README.md)
+ 
+   gem.test_files   = []
+   gem.executable   = 'listen'
