@@ -7,20 +7,18 @@ Uploaders: Markus Tornow <tornow@riseup.net>,
 Build-Depends: debhelper-compat (= 13),
                gem2deb (>= 1),
                rake,
-               ruby-rb-inotify (>= 0.9.10),
+               ruby-rb-inotify,
                ruby-rspec,
                ruby-thor,
-Standards-Version: 4.6.0
+Standards-Version: 4.6.1
 Vcs-Git: https://salsa.debian.org/ruby-team/ruby-listen.git
 Vcs-Browser: https://salsa.debian.org/ruby-team/ruby-listen
 Homepage: https://github.com/guard/listen
 Testsuite: autopkgtest-pkg-ruby
-XS-Ruby-Versions: all
 Rules-Requires-Root: no
 
 Package: ruby-listen
 Architecture: all
-XB-Ruby-Versions: ${ruby:Versions}
 Depends: ${misc:Depends},
          ${ruby:Depends},
          ${shlibs:Depends}

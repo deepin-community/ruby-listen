@@ -1,6 +1,7 @@
 From: Antonio Terceiro <terceiro@debian.org>
 Date: Sat, 8 Aug 2015 12:45:22 -0300
 Subject: gemspec: skip git usage
+Forwarded: not-needed
 
 ---
  listen.gemspec | 4 +---

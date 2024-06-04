@@ -1,6 +1,7 @@
 From: Antonio Terceiro <terceiro@debian.org>
 Date: Fri, 7 Aug 2015 18:14:14 -0300
 Subject: Remove OSX-specific dependency
+Forwarded: not-needed
 
 ---
  listen.gemspec | 1 -

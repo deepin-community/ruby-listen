@@ -1,3 +1,42 @@
+ruby-listen (3.9.0-1) unstable; urgency=medium
+
+  * Team upload
+  * New upstream version 3.9.0
+
+ -- Lucas Nussbaum <lucas@debian.org>  Mon, 04 Mar 2024 20:10:30 +0100
+
+ruby-listen (3.8.0-1) unstable; urgency=medium
+
+  * Team upload
+  * New upstream version 3.8.0
+  * Drop patch 0007-Fix-kwargs-matching-with-rspec-mock-3.12-and-Ruby-3+.patch
+
+ -- Lucas Nussbaum <lucas@debian.org>  Wed, 06 Sep 2023 22:33:41 +0200
+
+ruby-listen (3.7.0-3) unstable; urgency=medium
+
+  * Team upload.
+  * Fix watch file.
+
+ -- Lucas Nussbaum <lucas@debian.org>  Sat, 02 Sep 2023 21:13:06 +0200
+
+ruby-listen (3.7.0-2) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Debian Janitor ]
+  * Remove constraints unnecessary since buster (oldstable):
+    + Build-Depends: Drop versioned constraint on ruby-rb-inotify.
+  * Update standards version to 4.6.1, no changes needed.
+
+  [ HIGUCHI Daisuke (VDR dai) ]
+  * Fix FTBFS with rspec-mock 3.12 and ruby 3.1 (Closes: #1027079).
+  * Drop XS-Ruby-Version and XB-Ruby-Version.
+  * d/p/*: set Forwarded as not-needed.
+  * eliminate lintian warning: update-debian-copyright
+
+ -- HIGUCHI Daisuke (VDR dai) <dai@debian.org>  Wed, 28 Dec 2022 12:47:46 +0900
+
 ruby-listen (3.7.0-1) unstable; urgency=medium
 
   * Team upload.
