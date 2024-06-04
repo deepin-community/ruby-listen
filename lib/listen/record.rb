@@ -12,14 +12,14 @@ module Listen
     attr_reader :root
 
     def initialize(directory, silencer)
-      @tree = _auto_hash
+      reset_tree
       @root = directory.to_s
       @silencer = silencer
     end
 
     def add_dir(rel_path)
-      if ![nil, '', '.'].include?(rel_path)
-        @tree[rel_path] ||= {}
+      if !empty_dirname?(rel_path.to_s)
+        @tree[rel_path.to_s]
       end
     end
 
@@ -35,32 +35,32 @@ module Listen
 
     def file_data(rel_path)
       dirname, basename = Pathname(rel_path).split.map(&:to_s)
-      if [nil, '', '.'].include? dirname
-        @tree[basename] ||= {}
+      if empty_dirname?(dirname)
         @tree[basename].dup
       else
-        @tree[dirname] ||= {}
         @tree[dirname][basename] ||= {}
         @tree[dirname][basename].dup
       end
     end
 
     def dir_entries(rel_path)
-      subtree = if ['', '.'].include? rel_path.to_s
+      rel_path_s = rel_path.to_s
+      subtree = if empty_dirname?(rel_path_s)
         @tree
       else
-        @tree[rel_path.to_s] ||= _auto_hash
-        @tree[rel_path.to_s]
+        @tree[rel_path_s]
       end
 
-      subtree.transform_values do |values|
-        # only get data for file entries
-        values.key?(:mtime) ? values : {}
+      subtree.each_with_object({}) do |(key, values), result|
+        # only return data for file entries inside the dir (which will each be sub-hashes)
+        if values.is_a?(Hash)
+          result[key] = values.has_key?(:mtime) ? values : {}
+        end
       end
     end
 
     def build
-      @tree = _auto_hash
+      reset_tree
       # TODO: test with a file name given
       # TODO: test other permissions
       # TODO: test with mixed encoding
@@ -72,15 +72,18 @@ module Listen
 
     private
 
-    def _auto_hash
-      Hash.new { |h, k| h[k] = {} }
+    def empty_dirname?(dirname)
+      dirname == '.' || dirname == ''
+    end
+
+    def reset_tree
+      @tree = Hash.new { |h, k| h[k] = {} }
     end
 
     def _fast_update_file(dirname, basename, data)
-      if [nil, '', '.'].include?(dirname)
-        @tree[basename] = (@tree[basename] || {}).merge(data)
+      if empty_dirname?(dirname.to_s)
+        @tree[basename] = @tree[basename].merge(data)
       else
-        @tree[dirname] ||= {}
         @tree[dirname][basename] = (@tree[dirname][basename] || {}).merge(data)
       end
     end
@@ -88,7 +91,7 @@ module Listen
     def _fast_unset_path(dirname, basename)
       # this may need to be reworked to properly remove
       # entries from a tree, without adding non-existing dirs to the record
-      if [nil, '', '.'].include?(dirname)
+      if empty_dirname?(dirname.to_s)
         if @tree.key?(basename)
           @tree.delete(basename)
         end

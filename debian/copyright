@@ -8,8 +8,15 @@ Copyright: 2013 Thibaud Guillaume-Gentil <thibaud@thibaud.me>
 License: Expat
 
 Files: debian/*
-Copyright: 2012 Markus Tornow <tornow@riseup.net>
-           2013 Cédric Boutillier <boutil@debian.org>
+Copyright: 2012-2013 Markus Tornow <tornow@riseup.net>
+           2012 Srihari K <srih4ri@gmail.com>
+           2012-2014,2016,2020 Cédric Boutillier <boutil@debian.org>
+           2014-2015,2021 Antonio Terceiro <terceiro@debian.org>
+           2016 Thiago Ribeiro <thiagitosouza@gmail.com>
+           2017,2022 HIGUCHI Daisuke (VDR dai) <dai@debian.org>
+           2019 Utkarsh Gupta <guptautkarsh2102@gmail.com>
+           2020 Pirate Praveen <praveen@debian.org>
+           2020 Daniel Leidert <dleidert@debian.org>
 License: Expat
 
 License: Expat

@@ -1,6 +1,7 @@
 From: Daniel Leidert <daniel.leidert@wgdd.de>
 Date: Sat, 29 Feb 2020 14:17:51 +0100
 Subject: Disable coveralls
+Forwarded: not-needed
 
 Disable coveralls. Otherwise we have another failure thrown by coveralls.
 ---
